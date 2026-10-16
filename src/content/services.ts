@@ -22,6 +22,7 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
+import { assets } from "@/assets/images";
 
 export type ServiceItem = {
   icon: LucideIcon;
@@ -34,7 +35,7 @@ export const serviceSummaries = [
   {
     title: "Bathroom Remodeling & Improvements",
     href: "/bathroom-handyman",
-    image: "/images/bath-2.jpg",
+    image: assets.bath2,
     alt: "Updated bathroom with a walk-in shower, new vanity, and fresh tile",
     text: "Full bathroom renovations and custom tile showers — plus every fixture, floor, and finishing detail that makes the room complete.",
     points: [
@@ -47,7 +48,7 @@ export const serviceSummaries = [
   {
     title: "Tile Installation & Repairs",
     href: "/tile-installation",
-    image: "/images/kitchen-2.jpg",
+    image: assets.kitchen2,
     alt: "Kitchen with a freshly installed patterned ceramic tile backsplash",
     text: "Wall, floor, and shower tile set level and sealed to last — from kitchen backsplashes to cracked-tile repairs that disappear.",
     points: [

@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2, Phone, Wrench } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { assets } from "@/assets/images";
 import CtaBanner from "@/components/cta-banner";
 import FaqAccordion from "@/components/faq-accordion";
 import JsonLd from "@/components/json-ld";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "Floor, wall & shower tile plus kitchen backsplashes — installed level, watertight, and built to last by a licensed Redmond contractor.",
     url: `${site.url}/tile-installation`,
-    images: [{ url: "/images/kitchen-2.jpg", width: 1600, height: 1200, alt: "Patterned ceramic tile backsplash installed in a Kirkland kitchen" }],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Kitchen backsplash and tile work by WA Pro Builders LLC of Redmond, WA" }],
   },
 };
 
@@ -49,7 +50,7 @@ export default function TileInstallationPage() {
           description:
             "Floor, wall, and shower tile installation plus kitchen backsplashes in Redmond, WA and across the Eastside — porcelain, ceramic, natural stone, glass mosaic, large format, and artisan tile with full waterproofing.",
           path: "/tile-installation",
-          image: "/images/kitchen-2.jpg",
+          image: "/images/og.jpg",
         })}
       />
       <JsonLd data={faqJsonLd(tileFaqs)} />
@@ -58,7 +59,7 @@ export default function TileInstallationPage() {
         eyebrow={`Services · ${site.city}, ${site.state}`}
         title='Tile installation &amp; kitchen <em class="italic text-clay-600">backsplashes</em>'
         sub="From mud-set shower pans to picture-perfect backsplash lines — floor, wall, and wet-area tile installed by a licensed Redmond contractor, with waterproofing you never have to think about."
-        image="/images/kitchen-2.jpg"
+        image={assets.kitchen2}
         alt="Kirkland kitchen featuring a patterned ceramic tile backsplash installed by WA Pro Builders"
         crumbs={[{ name: "Tile & Backsplashes", path: "/tile-installation" }]}
       />
@@ -135,7 +136,7 @@ export default function TileInstallationPage() {
                 <div className="rounded-[2rem] border border-paper/15 bg-ink-900 p-2">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem]">
                     <Image
-                      src="/images/kitchen-4.jpg"
+                      src={assets.kitchen4}
                       alt="Deep blue handmade-look tile backsplash with white cabinetry in a Woodinville kitchen"
                       fill
                       sizes="(min-width: 1024px) 42vw, 100vw"
@@ -209,11 +210,11 @@ export default function TileInstallationPage() {
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24" aria-label="Recent tile projects">
         <div className="grid gap-4 md:grid-cols-3 md:gap-6">
           {[
-            { src: "/images/kitchen-5.jpg", alt: "Sammamish range wall finished in textured artisan tile", tall: true },
-            { src: "/images/floor-1.jpg", alt: "Stone-look porcelain entryway floor in Carnation", tall: false },
-            { src: "/images/bath-1.jpg", alt: "Marble-look porcelain walk-in shower in West Bellevue", tall: false },
+            { src: assets.kitchen5, alt: "Sammamish range wall finished in textured artisan tile", tall: true },
+            { src: assets.floor1, alt: "Stone-look porcelain entryway floor in Carnation", tall: false },
+            { src: assets.bath1, alt: "Marble-look porcelain walk-in shower in West Bellevue", tall: false },
           ].map((img, i) => (
-            <Reveal key={img.src} delay={i * 100}>
+            <Reveal key={img.alt} delay={i * 100}>
               <Link href="/gallery" className="group block">
                 <div className={`relative overflow-hidden rounded-3xl border border-line ${img.tall ? "aspect-[3/4] md:aspect-auto md:h-full" : "aspect-[4/3]"}`}>
                   <Image

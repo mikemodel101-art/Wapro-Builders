@@ -15,11 +15,21 @@ busy owner, not a developer. ~10 minutes of reading. Keep this file.
 | Customer reviews            | `src/content/reviews.ts`                      |
 | Service descriptions        | `src/content/services.ts`                     |
 | FAQs                        | `src/content/faqs.ts`                         |
-| Photos                      | `public/images/`                              |
+| Photos                      | `src/assets/images/` (registry: `src/assets/images.ts`) |
+| Share card (OG image)       | `public/images/og.jpg`                        |
 | Page text (headings, copy)  | `src/app/**/page.tsx`                         |
 
-**Rule of thumb: text and photos live in `src/content/` and `public/images/`,
+**Rule of thumb: text lives in `src/content/`, photos in `src/assets/images/`,
 and nothing else ever needs to change.**
+
+### Where the current photos came from
+
+All current photos are stock images from **Pexels** (pexels.com) — a free,
+open stock-photo license allowing commercial use with no attribution
+required. They are stand-ins: replace them with your real job photos as soon
+as you have them (same filename = instant replacement). If you ever want more
+stock, the equally free **Unsplash** (unsplash.com) library has the same kind
+of license.
 
 ---
 
@@ -53,15 +63,17 @@ Then set the env vars (see §5–7), deploy, and you're live.
 ### Add / replace a project photo
 1. Export the photo as JPG, roughly 1600px on the long edge (any phone photo
    works — export via Lightroom/Photos or just use as-is).
-2. Drop it into `public/images/` — e.g. `public/images/kirkland-shower.jpg`.
-3. Open `src/content/projects.ts`, copy an existing entry, and edit:
+2. Drop it into `src/assets/images/` — e.g. `src/assets/images/kirkland-shower.jpg`.
+3. Run `node scripts/optimize-images.mjs` to compress it in place.
+4. Register it in `src/assets/images.ts` (copy one import line + one key).
+5. Open `src/content/projects.ts`, copy an existing entry, and edit:
    `slug` (one-time id), `title`, `category`, `location`, `year`,
-   `image` ("/images/kirkland-shower.jpg"), `alt` (describe the photo),
-   `blurb` (2 sentences), `tall` (true if portrait).
-4. Set `featured: true` on up to 6 projects to pin them to the homepage.
+   `image` (your new asset key, e.g. `assets.kirklandShower`), `alt`
+   (describe the photo), `blurb` (2 sentences), `tall` (true if portrait).
+6. Set `featured: true` on up to 6 projects to pin them to the homepage.
 
-The site automatically optimizes every image to responsive WebP/AVIF — no
-manual compression needed.
+Because photos are imported through code, they are bundled and fingerprinted
+by the build — they load on every host with zero extra setup.
 
 ### Update reviews
 Edit entries in `src/content/reviews.ts`. Keep them genuine and verbatim from
@@ -74,23 +86,23 @@ keeps the site consistent with your Google Business Profile.
 
 ---
 
-## 3.5 Deploying to Vercel (and why images are now bulletproof)
+## 3.5 Deploying to Vercel (and why images can't go missing)
 
-**How photos work on this site:** all photos are real, pre-compressed files in
-`public/images/` (mozjpeg, ≤2400px — run `node scripts/optimize-images.mjs`
-after adding new ones). They are served **directly** as static files, not
-through a server-side image proxy (`next.config.ts` sets
-`images.unoptimized: true`). This means they load identically on Vercel,
-Netlify, or any static host with zero configuration.
+**How photos work on this site:** photos are real, pre-compressed JPGs in
+`src/assets/images/` and are **imported through the code** (see
+`src/assets/images.ts`). Because they're part of the module graph, the build
+bundles and fingerprints them automatically — they can never be missing from
+a deployment, on Vercel or anywhere else. Serving goes straight to static
+files (`next.config.ts` sets `images.unoptimized: true`), so no server-side
+image proxy is involved. The only file in `public/` is `og.jpg`, the social
+share card, which needs a stable public URL for OG tags and schema.
 
 **Correct Vercel deployment steps:**
 
-1. `git init && git add . && git commit -m "site"` — the included
-   `.gitignore` keeps `node_modules`/`.next` out but **keeps
-   `public/images/` in**. If images 404 after deploy, they weren't uploaded:
-   check that no custom `.gitignore`/`.vercelignore` excludes them.
-2. Push to GitHub/GitLab, then in Vercel: **Add New Project → Import →
-   Framework: Next.js** (detection is also pinned in `vercel.json`).
+1. Commit **everything** (`git add -A` — this includes deletions, so old
+   stale files disappear) and push.
+2. In Vercel: **Add New Project → Import → Framework: Next.js**
+   (detection is also pinned in `vercel.json`).
 3. Add the env vars from `.env` (Analytics ID, verification token, form
    webhook, `NEXT_PUBLIC_SITE_URL` = your real domain) in **Settings →
    Environment Variables**.
@@ -98,8 +110,8 @@ Netlify, or any static host with zero configuration.
    automatic. Set the same domain in `NEXT_PUBLIC_SITE_URL` and redeploy so
    the sitemap, robots.txt, and schema point at the real URL.
 
-**If anything other than images misbehaves on Vercel**, check the deploy log
-(Project → Deployments → select build) — it prints the exact failing step.
+**If anything misbehaves on Vercel**, check the deploy log (Project →
+Deployments → select build) — it prints the exact failing step.
 
 ## 4. What the site already does for search & AI discovery
 

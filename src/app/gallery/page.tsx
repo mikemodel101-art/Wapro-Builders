@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { assets } from "@/assets/images";
 import CtaBanner from "@/components/cta-banner";
 import JsonLd from "@/components/json-ld";
 import PageHero from "@/components/page-hero";
@@ -35,7 +36,7 @@ export default function GalleryPage() {
         eyebrow={`Our work · ${site.projectsCompleted}+ projects`}
         title='Built nearby. <em class="italic text-clay-600">Photographed before we left.</em>'
         sub="A selection of recent tile, backsplash, bathroom, and flooring projects — every one within about 20 miles of downtown Redmond. Tap any photo for the full story."
-        image="/images/kitchen-5.jpg"
+        image={assets.kitchen5}
         alt="Sammamish kitchen range wall with textured artisan tile by WA Pro Builders"
         crumbs={[{ name: "Project Gallery", path: "/gallery" }]}
       />

@@ -1,5 +1,5 @@
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/reveal";
 import { site } from "@/content/site";
@@ -20,7 +20,7 @@ export default function PageHero({
   /** Supports a little inline HTML for italic accents */
   title: string;
   sub: string;
-  image: string;
+  image: StaticImageData;
   alt: string;
   crumbs: { name: string; path: string }[];
   priority?: boolean;

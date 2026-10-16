@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { assets } from "@/assets/images";
 import AreaMap from "@/components/area-map";
 import CtaBanner from "@/components/cta-banner";
 import Herringbone from "@/components/herringbone";
@@ -111,7 +112,7 @@ export default function HomePage() {
                   <div className="rounded-[2.2rem] border border-line bg-cream p-2.5 shadow-lift">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem]">
                       <Image
-                        src="/images/hero.jpg"
+                        src={assets.hero}
                         alt="Kitchen in Redmond, WA with a newly installed tile backsplash, wood range hood, and stone counters by WA Pro Builders"
                         fill
                         priority
@@ -158,7 +159,7 @@ export default function HomePage() {
                 <div className="rounded-[2rem] border border-line bg-cream p-2 shadow-card">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[1.6rem]">
                     <Image
-                      src="/images/craft-1.jpg"
+                      src={assets.craft1}
                       alt="Professional tiling tools — trowels, spacers, and tile — prepared for a Redmond installation"
                       fill
                       sizes="(min-width: 1024px) 40vw, 100vw"
@@ -169,7 +170,7 @@ export default function HomePage() {
                 <div className="absolute right-0 -bottom-2 w-1/2 rotate-2 rounded-[1.6rem] border border-line bg-paper p-2 shadow-lift">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[1.1rem]">
                     <Image
-                      src="/images/craft-2.jpg"
+                      src={assets.craft2}
                       alt="Installer setting large-format floor tile in a Washington home"
                       fill
                       sizes="(min-width: 1024px) 20vw, 50vw"

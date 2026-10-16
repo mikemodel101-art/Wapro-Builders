@@ -2,6 +2,7 @@ import { ArrowRight, Clock3, Phone, Wallet } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { assets } from "@/assets/images";
 import CtaBanner from "@/components/cta-banner";
 import FaqAccordion from "@/components/faq-accordion";
 import Herringbone from "@/components/herringbone";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     description:
       "Walk-in showers, vanities, fresh tile — plus a handyman service that actually takes your punch list seriously.",
     url: `${site.url}/bathroom-handyman`,
-    images: [{ url: "/images/bath-2.jpg", width: 1600, height: 1200, alt: "Updated Kirkland bathroom with walk-in shower and new vanity" }],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Bathroom remodeling by WA Pro Builders LLC of Redmond, WA" }],
   },
 };
 
@@ -43,7 +44,7 @@ export default function BathroomHandymanPage() {
           description:
             "Bathroom remodeling — full renovations, custom tile showers, bathtub installation and refinishing, vanity/toilet/faucet installation, LVP and tile flooring — plus handyman and general repairs in Redmond, WA and across the Eastside.",
           path: "/bathroom-handyman",
-          image: "/images/bath-2.jpg",
+          image: "/images/og.jpg",
         })}
       />
       <JsonLd data={faqJsonLd(bathroomFaqs)} />
@@ -52,7 +53,7 @@ export default function BathroomHandymanPage() {
         eyebrow={`Services · ${site.city}, ${site.state}`}
         title='Bathroom remodeling &amp; <em class="italic text-clay-600">handyman</em> services'
         sub="Full renovations, custom tile showers, fresh vanities and warm floors — plus a handyman crew that finally takes your two-page punch list seriously. One licensed Redmond contractor, one phone call: (206) 804-1196."
-        image="/images/bath-2.jpg"
+        image={assets.bath2}
         alt="Freshly improved Kirkland bathroom with walk-in shower, wood vanity, and new tile"
         crumbs={[{ name: "Bathroom & Handyman", path: "/bathroom-handyman" }]}
       />
@@ -191,11 +192,11 @@ export default function BathroomHandymanPage() {
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24" aria-label="Recent bathroom and handyman projects">
         <div className="grid gap-4 md:grid-cols-3 md:gap-6">
           {[
-            { src: "/images/bath-3.jpg", alt: "Curbless walk-in shower conversion in Redmond Ridge" },
-            { src: "/images/bath-4.jpg", alt: "Matte black fixtures installed on a freshly regrouted shower wall in Bothell" },
-            { src: "/images/floor-2.jpg", alt: "Charcoal hexagon mudroom floor tile in Redmond" },
+            { src: assets.bath3, alt: "Curbless walk-in shower conversion in Redmond Ridge" },
+            { src: assets.bath4, alt: "Matte black fixtures installed on a freshly regrouted shower wall in Bothell" },
+            { src: assets.floor2, alt: "Charcoal hexagon mudroom floor tile in Redmond" },
           ].map((img, i) => (
-            <Reveal key={img.src} delay={i * 100}>
+            <Reveal key={img.alt} delay={i * 100}>
               <Link href="/gallery" className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-line">
                   <Image
