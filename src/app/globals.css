@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   WA Pro Builders — design tokens (Tailwind v4)
+   Palette: warm plaster whites, espresso inks, kiln-fired terracotta.
+   ========================================================================== */
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-mono: "SF Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+
+  --color-paper: #faf7f1;
+  --color-cream: #f4eee3;
+  --color-linen: #ece4d4;
+  --color-sand: #e2d7c3;
+  --color-line: #dcd2bf;
+
+  --color-ink-950: #16120d;
+  --color-ink-900: #1e1913;
+  --color-ink-800: #2b241c;
+  --color-ink-700: #40372c;
+  --color-ink-600: #584e41;
+  --color-ink-500: #726658;
+  --color-ink-400: #938675;
+  --color-ink-300: #b7aa98;
+
+  --color-clay-700: #9a4222;
+  --color-clay-600: #b4502a;
+  --color-clay-500: #c4633a;
+  --color-clay-400: #d4885f;
+  --color-clay-300: #e6af8e;
+  --color-clay-100: #f6e1d1;
+  --color-clay-50: #fbf0e6;
+
+  --color-moss-700: #33473c;
+  --color-moss-600: #3f5a49;
+  --color-moss-100: #e4ebe2;
+
+  --shadow-card: 0 1px 2px rgb(22 18 13 / 0.06), 0 12px 32px -12px rgb(22 18 13 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(22 18 13 / 0.08), 0 24px 48px -16px rgb(22 18 13 / 0.28);
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-marquee: marquee 42s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-clay-600);
+  color: var(--color-paper);
+}
+
+/* Refined focus visibility */
+:focus-visible {
+  outline: 2px solid var(--color-clay-600);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Scroll-reveal system (used by <Reveal />)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo),
+    filter 0.9s var(--ease-out-expo);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Decorative helpers
+   -------------------------------------------------------------------------- */
+
+/* Fine dotted grid used behind hero / areas */
+.dotgrid {
+  background-image: radial-gradient(rgb(64 55 44 / 0.16) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Subtle vertical hairlines — architectural "drawing" feel */
+.blueprint {
+  background-image: linear-gradient(to right, rgb(64 55 44 / 0.055) 1px, transparent 1px);
+  background-size: clamp(48px, 7vw, 96px) 100%;
+}
+
+/* Link underline sweep */
+.link-sweep {
+  position: relative;
+}
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-out-expo);
+}
+.link-sweep:hover::after,
+.link-sweep.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Hide honeypot field from humans, keep in DOM for bots */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Thin scrollbar for horizontal scrollers */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Marquee pause on hover */
+.marquee-hover:hover .animate-marquee {
+  animation-play-state: paused;
+}
