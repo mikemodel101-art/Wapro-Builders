@@ -23,20 +23,26 @@ and nothing else ever needs to change.**
 
 ---
 
-## 2. BEFORE LAUNCH — replace the placeholders
+## 2. Business details — what's real and what's still placeholder
 
-Search every file for `TODO(launch)` — there are exactly 4 things to replace:
+**Already wired with real GBP data** (phone, hours, 5.0 rating / 13 reviews,
+owner Evgenii Chepachenko, and 11 verbatim Google reviews shown in the
+animated sliding review rail on the homepage).
 
-1. **Phone number** — `src/content/site.ts` (change `phone` and `phoneHref`)
-2. **Email** — `src/content/site.ts`
-3. **WA contractor license number** — `src/content/site.ts` (`license`)
-4. **Reviews** — `src/content/reviews.ts`. Paste real Google reviews verbatim
-   (first name + last initial), then update the rating/count in
-   `src/content/site.ts` under `site.rating` so the website, the structured
-   data, and your Google Business Profile all match.
+Search every file for `TODO(launch)` — the remaining placeholders are:
 
-Also update the social profile URLs in `src/content/site.ts` (`social`) — these
-feed the `sameAs` field in your LocalBusiness structured data.
+1. **Email** — `src/content/site.ts`
+2. **WA contractor license number** — `src/content/site.ts` (`license`)
+3. **Founding year, years of experience, project count** — `src/content/site.ts`
+   (`established`, `yearsExperience`, `projectsCompleted`)
+4. **Social / profile URLs** (Google Business Profile, Thumbtack, Facebook,
+   Instagram, Yelp) — `src/content/site.ts` (`social`). These feed the
+   `sameAs` field in your LocalBusiness structured data.
+5. **Gallery photos** — currently licensed stock stand-ins. Replace with real
+   job photos as described in §3 — same filename = instant replacement.
+
+When new Google reviews come in, add them to `src/content/reviews.ts` and bump
+`site.rating.count` so the site, structured data, and GBP always match.
 
 Then set the env vars (see §5–7), deploy, and you're live.
 
@@ -67,6 +73,33 @@ robots.txt, and LocalBusiness schema all update automatically — this is what
 keeps the site consistent with your Google Business Profile.
 
 ---
+
+## 3.5 Deploying to Vercel (and why images are now bulletproof)
+
+**How photos work on this site:** all photos are real, pre-compressed files in
+`public/images/` (mozjpeg, ≤2400px — run `node scripts/optimize-images.mjs`
+after adding new ones). They are served **directly** as static files, not
+through a server-side image proxy (`next.config.ts` sets
+`images.unoptimized: true`). This means they load identically on Vercel,
+Netlify, or any static host with zero configuration.
+
+**Correct Vercel deployment steps:**
+
+1. `git init && git add . && git commit -m "site"` — the included
+   `.gitignore` keeps `node_modules`/`.next` out but **keeps
+   `public/images/` in**. If images 404 after deploy, they weren't uploaded:
+   check that no custom `.gitignore`/`.vercelignore` excludes them.
+2. Push to GitHub/GitLab, then in Vercel: **Add New Project → Import →
+   Framework: Next.js** (detection is also pinned in `vercel.json`).
+3. Add the env vars from `.env` (Analytics ID, verification token, form
+   webhook, `NEXT_PUBLIC_SITE_URL` = your real domain) in **Settings →
+   Environment Variables**.
+4. Deploy, then attach your domain (**Settings → Domains**) — HTTPS is
+   automatic. Set the same domain in `NEXT_PUBLIC_SITE_URL` and redeploy so
+   the sitemap, robots.txt, and schema point at the real URL.
+
+**If anything other than images misbehaves on Vercel**, check the deploy log
+(Project → Deployments → select build) — it prints the exact failing step.
 
 ## 4. What the site already does for search & AI discovery
 

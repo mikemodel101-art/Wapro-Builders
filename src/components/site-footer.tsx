@@ -29,9 +29,9 @@ export default function SiteFooter() {
               </span>
             </p>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-paper/60">
-              A licensed, bonded &amp; insured tile and home improvement contractor based in
-              Redmond, Washington — serving Eastside homeowners within roughly{" "}
-              {site.radiusMiles} miles since {site.established}.
+              A licensed, bonded &amp; insured bathroom remodeling and home improvement
+              contractor based in Redmond, Washington — serving Eastside homeowners within
+              roughly {site.radiusMiles} miles. Owner-led by {site.owner}.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-2 rounded-full border border-paper/15 px-3 py-1.5 text-[11px] font-medium text-paper/75">
@@ -40,7 +40,7 @@ export default function SiteFooter() {
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-paper/15 px-3 py-1.5 text-[11px] font-medium text-paper/75">
                 <Star className="h-3.5 w-3.5 fill-clay-400 text-clay-400" aria-hidden="true" />
-                {site.rating.value} on Google ({site.rating.count} reviews)
+                {site.rating.label} on Google ({site.rating.count} reviews)
               </span>
             </div>
           </div>
@@ -52,8 +52,18 @@ export default function SiteFooter() {
             </h2>
             <ul className="mt-5 space-y-3 text-sm">
               <li>
+                <Link href="/bathroom-handyman" className="link-sweep text-paper/70 hover:text-paper">
+                  Bathroom Remodeling
+                </Link>
+              </li>
+              <li>
+                <Link href="/bathroom-handyman" className="link-sweep text-paper/70 hover:text-paper">
+                  Custom Tile Showers
+                </Link>
+              </li>
+              <li>
                 <Link href="/tile-installation" className="link-sweep text-paper/70 hover:text-paper">
-                  Tile Installation
+                  Tile Installation &amp; Repairs
                 </Link>
               </li>
               <li>
@@ -62,18 +72,8 @@ export default function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/bathroom-handyman" className="link-sweep text-paper/70 hover:text-paper">
-                  Bathroom Improvements
-                </Link>
-              </li>
-              <li>
                 <Link href="/bathroom-handyman#handyman" className="link-sweep text-paper/70 hover:text-paper">
-                  Handyman Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/tile-installation#repair" className="link-sweep text-paper/70 hover:text-paper">
-                  Grout &amp; Caulk Repair
+                  Handyman &amp; General Repairs
                 </Link>
               </li>
             </ul>

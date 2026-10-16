@@ -16,7 +16,7 @@ import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/jsonld";
 export const metadata: Metadata = {
   title: "Tile Installation & Kitchen Backsplashes in Redmond, WA",
   description:
-    "Professional tile installation in Redmond, WA: kitchen backsplashes, shower & floor tile, natural stone, heated floors, and grout repair. Licensed, bonded & insured. Serving Bellevue, Kirkland & the Eastside. Free estimates — (425) 555-0148.",
+    "Professional tile installation in Redmond, WA: kitchen backsplashes, custom shower tile, floor tile, natural stone, heated floors, and tile repairs. Licensed, bonded & insured. Serving Bellevue, Kirkland & the Eastside. Free estimates — (206) 804-1196.",
   alternates: { canonical: "/tile-installation" },
   openGraph: {
     title: "Tile Installation & Kitchen Backsplashes in Redmond, WA | WA Pro Builders LLC",

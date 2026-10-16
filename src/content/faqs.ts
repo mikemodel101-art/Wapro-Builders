@@ -57,6 +57,6 @@ export const bathroomFaqs: Faq[] = [
   },
   {
     q: "Which cities do you serve for bathroom and handyman work?",
-    a: "We're based in Redmond and serve homes within roughly 20 miles — including Bellevue, Kirkland, Sammamish, Woodinville, Bothell, Issaquah, Duvall, Carnation, Renton, Mercer Island, Kenmore, and Fall City. Not sure if you're in range? Call (425) 555-0148 and we'll tell you right away.",
+    a: "We're based in Redmond and serve homes within roughly 20 miles — including Bellevue, Kirkland, Sammamish, Woodinville, Bothell, Issaquah, Duvall, Carnation, Renton, Mercer Island, Kenmore, and Fall City. Not sure if you're in range? Call (206) 804-1196 and we'll tell you right away.",
   },
 ];

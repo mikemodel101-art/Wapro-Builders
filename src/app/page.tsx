@@ -3,12 +3,12 @@ import {
   ArrowUpRight,
   Award,
   CheckCircle2,
-  FileText,
   MapPin,
   Phone,
   ShieldCheck,
   Sparkles,
   Star,
+  UserRound,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,8 +16,8 @@ import AreaMap from "@/components/area-map";
 import CtaBanner from "@/components/cta-banner";
 import Herringbone from "@/components/herringbone";
 import Marquee from "@/components/marquee";
-import ReviewGrid from "@/components/review-grid";
 import Reveal from "@/components/reveal";
+import ReviewRail from "@/components/review-rail";
 import SectionHeading from "@/components/section-heading";
 import Stats from "@/components/stats";
 import TileMark from "@/components/tile-mark";
@@ -25,17 +25,17 @@ import { featuredProjects } from "@/content/projects";
 import { processSteps, serviceSummaries, trustPoints } from "@/content/services";
 import { serviceAreas, site } from "@/content/site";
 
-const trustIcons = { shield: ShieldCheck, file: FileText, sparkles: Sparkles, award: Award } as const;
+const trustIcons = { shield: ShieldCheck, user: UserRound, sparkles: Sparkles, award: Award } as const;
 
 const marqueeItems = [
+  "Full Bathroom Remodels",
+  "Custom Tile Showers",
+  "LVP & Tile Flooring",
+  "Vanities & Fixtures",
   "Kitchen Backsplashes",
-  "Shower & Tub Tile",
-  "Heated Floors",
-  "Bathroom Refresh",
-  "Grout & Caulk Repair",
-  "Natural Stone",
-  "Handyman Punch Lists",
-  "Walk-In Showers",
+  "Drywall & Subfloor Repair",
+  "Interior Painting",
+  "Cabinets, Trim & Assembly",
 ];
 
 export default function HomePage() {
@@ -55,16 +55,16 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={100}>
                 <h1 className="mt-6 font-display text-[clamp(3rem,7.2vw,5.8rem)] leading-[0.98] font-medium tracking-[-0.025em] text-ink-950">
-                  Tile work that{" "}
-                  <em className="text-clay-600 italic">transforms</em> the room.
+                  Bathrooms &amp; tile,{" "}
+                  <em className="text-clay-600 italic">beautifully</em> built.
                 </h1>
               </Reveal>
               <Reveal delay={200}>
                 <p className="mt-7 max-w-lg text-lg leading-relaxed text-ink-600">
-                  WA Pro Builders LLC is a licensed, bonded &amp; insured tile and home
-                  improvement contractor based in Redmond — trusted across Bellevue,
-                  Kirkland, and the Eastside for backsplashes, showers, floors, and the
-                  small jobs other crews won&rsquo;t take.
+                  WA Pro Builders LLC is a licensed, bonded &amp; insured bathroom remodeling
+                  and home improvement specialist based in Redmond — trusted across Bellevue,
+                  Kirkland, and the Eastside for custom tile showers, full bathroom
+                  renovations, flooring, and the small jobs other crews won&rsquo;t take.
                 </p>
               </Reveal>
               <Reveal delay={300} className="mt-9 flex flex-wrap items-center gap-3">
@@ -90,7 +90,7 @@ export default function HomePage() {
                       <Star key={i} className="h-4 w-4 fill-clay-500 text-clay-500" aria-hidden="true" />
                     ))}
                   </span>
-                  <span className="font-medium text-ink-900">{site.rating.value}</span> on Google
+                  <span className="font-medium text-ink-900">{site.rating.label}</span> on Google
                 </span>
                 <span className="hidden h-4 w-px bg-line sm:block" aria-hidden="true" />
                 <span className="flex items-center gap-2">
@@ -128,11 +128,11 @@ export default function HomePage() {
                       ))}
                     </div>
                     <blockquote className="mt-2.5 text-[13px] leading-relaxed text-ink-700">
-                      &ldquo;My kitchen looks like it belongs in a magazine. The workspace was
-                      spotless every evening.&rdquo;
+                      &ldquo;Yevgen remodeled our bathroom and did a great job — professional,
+                      easy to work with, and kept everything clean during the project.&rdquo;
                     </blockquote>
                     <figcaption className="mt-2.5 font-mono text-[10px] tracking-[0.18em] text-ink-400 uppercase">
-                      Sarah M. · Redmond · Google
+                      Ihor K. · Bathroom remodel · Google
                     </figcaption>
                   </figure>
                 </div>
@@ -188,25 +188,26 @@ export default function HomePage() {
             />
             <Reveal delay={120}>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-600 md:text-lg">
-                We started WA Pro Builders in {site.established} with a simple frustration:
-                too many contractors make homeowners chase them. So we built the opposite
-                kind of company — one that answers the phone, shows up when promised, and
-                sweeps the floor before leaving. Today we handle{" "}
-                <Link
-                  href="/tile-installation"
-                  className="font-medium text-clay-700 underline decoration-clay-300 underline-offset-4 transition-colors hover:decoration-clay-600"
-                >
-                  tile installation across Redmond
-                </Link>{" "}
-                and Bellevue, kitchen backsplashes,{" "}
+                WA Pro Builders is owned and led by Evgenii Chepachenko — and Evgenii is
+                on-site for every job. It started with a simple frustration: too many
+                contractors make homeowners chase them. So we built the opposite kind of
+                company — one that answers the phone, shows up when promised, and sweeps
+                the floor before leaving. Today we handle{" "}
                 <Link
                   href="/bathroom-handyman"
                   className="font-medium text-clay-700 underline decoration-clay-300 underline-offset-4 transition-colors hover:decoration-clay-600"
                 >
-                  bathroom improvements
+                  bathroom remodels across Redmond
+                </Link>{" "}
+                and Bellevue, custom tile showers,{" "}
+                <Link
+                  href="/tile-installation"
+                  className="font-medium text-clay-700 underline decoration-clay-300 underline-offset-4 transition-colors hover:decoration-clay-600"
+                >
+                  tile installation
                 </Link>
-                , and handyman punch lists across Kirkland, Sammamish, Woodinville, and the
-                greater Eastside.
+                , LVP and tile flooring, and handyman repairs across Kirkland, Sammamish,
+                Woodinville, and the greater Eastside.
               </p>
             </Reveal>
             <div className="mt-9 grid gap-5 sm:grid-cols-2">
@@ -235,7 +236,7 @@ export default function HomePage() {
             items={[
               { value: site.yearsExperience, suffix: "+", label: "Years serving the Eastside" },
               { value: site.projectsCompleted, suffix: "+", label: "Projects completed" },
-              { value: site.rating.value, decimals: 1, label: "Average Google rating" },
+              { value: site.rating.value, decimals: 1, label: `Google rating · ${site.rating.count} reviews` },
               { value: site.radiusMiles, suffix: " mi", label: "Service radius from Redmond" },
             ]}
           />
@@ -374,16 +375,42 @@ export default function HomePage() {
       </section>
 
       {/* ======================================================== REVIEWS */}
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28" aria-labelledby="reviews-heading">
-        <SectionHeading
-          eyebrow="05 — Homeowners talk"
-          title="The reviews we work to earn."
-          intro="Every review below is from a real project in our service area. Ask around — your neighbors in Redmond, Bellevue, and Kirkland know our work."
-          align="center"
-        />
-        <div className="mt-12">
-          <ReviewGrid />
+      <section className="overflow-hidden py-20 md:py-28" aria-labelledby="reviews-heading">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <SectionHeading
+              eyebrow="05 — Verified Google reviews"
+              title='Five stars, <em class="italic text-clay-600">thirteen times over.</em>'
+              intro="Real reviews from real projects around the Eastside — communication and tile work are what homeowners mention most."
+            />
+            <Reveal delay={150} className="flex items-center gap-4 rounded-3xl border border-line bg-white/60 px-7 py-5 shadow-card">
+              <span className="font-display text-6xl leading-none font-medium text-ink-900">
+                {site.rating.label}
+              </span>
+              <span>
+                <span className="flex gap-0.5" aria-hidden="true">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-clay-500 text-clay-500" />
+                  ))}
+                </span>
+                <span className="mt-1.5 block text-xs leading-snug text-ink-500">
+                  Based on {site.rating.count} verified
+                  <br />
+                  Google reviews
+                </span>
+              </span>
+            </Reveal>
+          </div>
         </div>
+
+        {/* Sliding review rails — two rows, opposite directions, pause on hover */}
+        <Reveal delay={200} className="mt-14">
+          <ReviewRail />
+        </Reveal>
+
+        <p className="mx-auto mt-10 max-w-7xl px-5 text-center text-xs text-ink-400 md:px-8">
+          Every review shown exactly as published on our Google Business Profile.
+        </p>
       </section>
 
       {/* ==================================================== SERVICE AREA */}

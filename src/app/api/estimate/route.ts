@@ -43,7 +43,7 @@ export async function POST(req: Request) {
 
   if (rateLimited(ip)) {
     return NextResponse.json(
-      { ok: false, error: "Too many requests — please call us instead: (425) 555-0148." },
+      { ok: false, error: "Too many requests — please call us instead: (206) 804-1196." },
       { status: 429 },
     );
   }

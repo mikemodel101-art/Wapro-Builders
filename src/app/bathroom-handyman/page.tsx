@@ -10,14 +10,14 @@ import PageHero from "@/components/page-hero";
 import Reveal from "@/components/reveal";
 import SectionHeading from "@/components/section-heading";
 import { bathroomFaqs } from "@/content/faqs";
-import { bathroomServices, handymanServices } from "@/content/services";
+import { bathroomRefreshList, bathroomServices, handymanServices } from "@/content/services";
 import { site } from "@/content/site";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  title: "Bathroom Improvements & Handyman Services in Redmond, WA",
+  title: "Bathroom Remodeling & Handyman Services in Redmond, WA",
   description:
-    "Bathroom improvements & handyman services in Redmond, WA: tub-to-shower conversions, vanities, bathroom tile & heated floors, regrouting, repairs & punch lists. Licensed & insured. Serving Bellevue, Kirkland, Sammamish & the Eastside.",
+    "Bathroom remodeling in Redmond, WA: full renovations, custom tile showers, bathtub install & refinishing, vanity/toilet/faucet installs, LVP & tile flooring — plus handyman repairs: drywall, subfloor, painting, cabinets, trim & furniture assembly. 5.0-rated. Call (206) 804-1196.",
   alternates: { canonical: "/bathroom-handyman" },
   openGraph: {
     title: "Bathroom Improvements & Handyman Services in Redmond, WA | WA Pro Builders LLC",
@@ -39,9 +39,9 @@ export default function BathroomHandymanPage() {
       />
       <JsonLd
         data={serviceJsonLd({
-          name: "Bathroom Improvements & Handyman Services",
+          name: "Bathroom Remodeling & Handyman Services",
           description:
-            "Bathroom improvements — tub-to-shower conversions, vanities, bathroom tile, heated floors, regrouting — plus handyman repair and punch-list services in Redmond, WA and across the Eastside.",
+            "Bathroom remodeling — full renovations, custom tile showers, bathtub installation and refinishing, vanity/toilet/faucet installation, LVP and tile flooring — plus handyman and general repairs in Redmond, WA and across the Eastside.",
           path: "/bathroom-handyman",
           image: "/images/bath-2.jpg",
         })}
@@ -50,8 +50,8 @@ export default function BathroomHandymanPage() {
 
       <PageHero
         eyebrow={`Services · ${site.city}, ${site.state}`}
-        title='Bathroom improvements &amp; <em class="italic text-clay-600">handyman</em> services'
-        sub="Walk-in showers, fresh vanities, warm floors — and a handyman crew that finally takes your two-page punch list seriously. One licensed Redmond contractor, one phone call."
+        title='Bathroom remodeling &amp; <em class="italic text-clay-600">handyman</em> services'
+        sub="Full renovations, custom tile showers, fresh vanities and warm floors — plus a handyman crew that finally takes your two-page punch list seriously. One licensed Redmond contractor, one phone call: (206) 804-1196."
         image="/images/bath-2.jpg"
         alt="Freshly improved Kirkland bathroom with walk-in shower, wood vanity, and new tile"
         crumbs={[{ name: "Bathroom & Handyman", path: "/bathroom-handyman" }]}
@@ -99,13 +99,7 @@ export default function BathroomHandymanPage() {
                 When the layout works, keep it.
               </h3>
               <ul className="mt-6 space-y-3 text-[15px] text-ink-700">
-                {[
-                  "Regrout & re-caulk every joint — instant visual reset",
-                  "New vanity, faucet, mirror & light fixtures",
-                  "Toilet swap and hardware updates",
-                  "Moisture-resistant paint in a fresh color",
-                  "A fraction of a remodel's cost and disruption",
-                ].map((item) => (
+                {bathroomRefreshList.map((item) => (
                   <li key={item} className="flex gap-3">
                     <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-clay-600" aria-hidden="true" />
                     {item}
@@ -156,9 +150,9 @@ export default function BathroomHandymanPage() {
               <Reveal delay={120}>
                 <p className="mt-6 text-base leading-relaxed text-paper/65 md:text-lg">
                   The dirty secret of home services: nobody wants your punch list. We built our
-                  handyman visits around it. Bundle the odd jobs, book a half or full day, and
-                  one licensed pro knocks out the list — with the same standard we bring to a
-                  full shower build.
+                  handyman visits around it — drywall and texturing, subfloor repair, interior
+                  painting, cabinets, trim and molding, even furniture assembly. Book a half or
+                  full day and one licensed pro knocks out the list.
                 </p>
                 <p className="mt-4 rounded-2xl border border-paper/12 bg-paper/5 p-5 text-sm leading-relaxed text-paper/70">
                   <strong className="text-paper">How it works:</strong> half-day minimum, then

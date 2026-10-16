@@ -8,8 +8,8 @@
  *  so updating this file keeps everything consistent — including what Google
  *  sees (it should always match your Google Business Profile).
  *
- *  NOTE: The phone / email / license below are PLACEHOLDER values.
- *  Replace them with the real business details before launch.
+ *  Phone / hours / rating / reviews were updated from the live Google
+ *  Business Profile. Remaining placeholders are marked TODO(launch).
  * ============================================================================
  */
 
@@ -18,11 +18,15 @@ export const site = {
   name: "WA Pro Builders LLC",
   /** Shorter name used in the logo / header */
   shortName: "WA Pro Builders",
-  tagline: "Tile & Home Improvement",
+  tagline: "Bathroom Remodeling & Home Improvement",
 
-  /** TODO(launch): replace with the real business phone number */
-  phone: "(425) 555-0148",
-  phoneHref: "tel:+14255550148",
+  /** Business phone (matches Google Business Profile) */
+  phone: "(206) 804-1196",
+  phoneHref: "tel:+12068041196",
+
+  /** Owner / lead — shown in copy and LocalBusiness `founder` schema */
+  owner: "Evgenii Chepachenko",
+  ownerFirstName: "Evgenii",
 
   /** TODO(launch): replace with the real business email */
   email: "hello@waprobuilders.com",
@@ -46,39 +50,42 @@ export const site = {
   geo: { lat: 47.674, lng: -122.1215 },
 
   /**
-   * TODO(launch): replace with the real Google rating + review count.
-   * These values appear on the site and in LocalBusiness schema — keep them
-   * in sync with the live Google Business Profile.
+   * Live Google Business Profile rating (5.0 — 13 reviews).
+   * `label` is the display string, `value`/`count` feed schema + stats.
+   * Keep in sync with the GBP as new reviews come in.
    */
-  rating: { value: 4.9, count: 27 },
+  rating: { value: 5, label: "5.0", count: 13 },
 
+  /** TODO(launch): confirm real founding year + project count */
   established: 2013,
   yearsExperience: 12,
   projectsCompleted: 350,
 
+  /** GBP hours: Mon–Fri 7:00 AM – 9:00 PM · Sat & Sun closed */
   hours: [
-    { days: "Monday – Friday", time: "8:00 AM – 6:00 PM" },
-    { days: "Saturday", time: "9:00 AM – 4:00 PM" },
-    { days: "Sunday", time: "Closed" },
+    { days: "Monday – Friday", time: "7:00 AM – 9:00 PM" },
+    { days: "Saturday & Sunday", time: "Closed" },
   ],
 
   /**
    * TODO(launch): paste real profile URLs (used for footer icons and the
-   * "sameAs" field in LocalBusiness structured data).
+   * "sameAs" field in LocalBusiness structured data). E.g. Thumbtack,
+   * Facebook, Instagram, Yelp.
    */
   social: {
     googleBusiness: "",
     facebook: "",
     instagram: "",
     yelp: "",
+    thumbtack: "",
   },
 };
 
 /** Primary navigation — order matters (header + mobile menu + footer) */
 export const nav = [
   { label: "Home", href: "/" },
-  { label: "Tile & Backsplashes", href: "/tile-installation" },
   { label: "Bathroom & Handyman", href: "/bathroom-handyman" },
+  { label: "Tile & Backsplashes", href: "/tile-installation" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];

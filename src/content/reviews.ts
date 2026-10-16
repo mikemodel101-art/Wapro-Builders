@@ -1,78 +1,107 @@
 /**
  * ============================================================================
- *  CUSTOMER REVIEWS
+ *  CUSTOMER REVIEWS — real, verified Google reviews for WA Pro Builders LLC
  * ----------------------------------------------------------------------------
- *  IMPORTANT: these are realistic PLACEHOLDER reviews used for layout.
- *  Before launch, replace each entry with a genuine review from your Google
- *  Business Profile (copy the text verbatim and keep the reviewer's first
- *  name + last initial). Keep the total count in sync with `site.rating`
- *  in  src/content/site.ts.
+ *  These are the actual reviews from the Google Business Profile (5.0, 13
+ *  reviews; two of the 13 are star-only ratings with no text, so 11 cards
+ *  are displayed). Names appear exactly as on Google — do not edit wording.
+ *
+ *  To add a new review: copy an entry, paste the review text verbatim, and
+ *  bump `site.rating.count` in src/content/site.ts to stay in sync with GBP.
  * ============================================================================
  */
 
 export type Review = {
+  /** Reviewer's display name exactly as shown on Google */
   name: string;
-  location: string;
-  project: string;
   text: string;
   rating: number; // 1–5
+  /** Optional job-type tag rendered as a small chip */
+  meta?: string;
+  /** Relative date as shown on Google */
   when: string;
   source: "Google";
 };
 
 export const reviews: Review[] = [
   {
-    name: "Sarah M.",
-    location: "Redmond",
-    project: "Kitchen backsplash",
-    text: "From the first phone call to the final walkthrough, everything was exactly as promised. They helped me pick a tile that worked with my counters, laid out the pattern before setting anything, and my kitchen looks like it belongs in a magazine. The workspace was spotless every evening.",
+    name: "Salvatore Cirillo",
+    text: "I can't speak highly enough about the quality of work and professionalism. The thoughtful approach, consultation, and collaboration was integral to the finished product. Evgenii and his wife are so kind. We would highly recommend them and will use them again for any of our tile needs.",
     rating: 5,
-    when: "February 2026",
+    meta: "Tile work",
+    when: "2 weeks ago",
     source: "Google",
   },
   {
-    name: "Daniel & Priya K.",
-    location: "Bellevue",
-    project: "Walk-in shower remodel",
-    text: "We converted our old tub into a walk-in shower and couldn't be happier. The waterproofing was explained step by step, the tile lines are perfectly straight, and the niche is exactly where we asked. On time, on budget, zero surprises.",
+    name: "Ihor Kolomiiets",
+    text: "Our friends recommended WA Pro Builders to us, and we're really glad they did. Yevgen remodeled our bathroom and did a great job. He was professional, easy to work with, and kept everything clean during the project.",
     rating: 5,
-    when: "January 2026",
+    meta: "Bathroom remodel",
+    when: "2 weeks ago",
     source: "Google",
   },
   {
-    name: "Karen T.",
-    location: "Kirkland",
-    project: "Bathroom refresh + handyman list",
-    text: "I had a long list of small things other companies wouldn't touch — regrouting the shower, fixing two doors, patching drywall, new caulk everywhere. One crew handled all of it in two days. Fair price and genuinely nice people to have in the house.",
+    name: "Daniil Matiukhin",
+    text: "Great experience with WA Pro Builders. They were professional, showed up on time, and did quality work. Everything was completed cleanly and exactly as discussed. Fair pricing and good communication throughout the project. Would definitely recommend them.",
     rating: 5,
-    when: "December 2025",
+    when: "A week ago",
     source: "Google",
   },
   {
-    name: "Mike R.",
-    location: "Sammamish",
-    project: "Porcelain floor tile",
-    text: "Three rooms of wood-look porcelain over a crack membrane. The leveling work underneath took longer than expected and they told me upfront instead of tiling over a problem. That's the kind of honesty you want. Floors are flat, quiet, and beautiful.",
+    name: "Влад Kwi",
+    text: "A huge thank you to Evgeniy and his team for the excellent work! We are extremely happy with the results and very impressed with the quality of their work. Everything was done professionally and with great attention to detail. We truly appreciate all their hard work and would definitely recommend Evgeniy and his team!",
     rating: 5,
-    when: "November 2025",
+    when: "2 weeks ago",
     source: "Google",
   },
   {
-    name: "Jessica L.",
-    location: "Woodinville",
-    project: "Blue artisan backsplash",
-    text: "The tile I chose was handmade and a little irregular — not every installer likes that. They dry-fitted the tricky sections, kept the variation looking intentional, and the result is the first thing guests comment on. Highly recommend for backsplash work.",
+    name: "Timothy M",
+    text: "Great experience with WA Pro Builders! Professional, reliable, and easy to work with. The work was completed on time and with great attention to detail. Highly recommend!",
     rating: 5,
-    when: "October 2025",
+    when: "2 weeks ago",
     source: "Google",
   },
   {
-    name: "Tom H.",
-    location: "Bothell",
-    project: "Shower regrout & fixtures",
-    text: "Thought I needed a whole new shower. They told me honestly that regrouting, fresh caulk, and new matte-black fixtures would get me 90% of the way there — and it did. Saved me thousands. I'll call them first for the real remodel when it's time.",
+    name: "Павел Иванюк",
+    text: "I had a great experience working with this company. They were professional, reliable, and did an excellent job. The quality of their work was impressive, especially the tile and construction work.",
     rating: 5,
-    when: "September 2025",
+    meta: "Tile & construction",
+    when: "2 weeks ago",
+    source: "Google",
+  },
+  {
+    name: "Alyona Pivovarova",
+    text: "They're always very clean and responsible with their work. They're always on time, honest, and their prices are reasonable.",
+    rating: 5,
+    when: "2 weeks ago",
+    source: "Google",
+  },
+  {
+    name: "Andrey Khlunov",
+    text: "Very satisfied with a professional execution, strong customer service and communication, attention to details and punctuality. Highly recommend.",
+    rating: 5,
+    when: "2 weeks ago",
+    source: "Google",
+  },
+  {
+    name: "Igor Filipov",
+    text: "Great guys! It's always a pleasure dealing with people who truly know what they're doing. Professional, friendly, and easy to work with. Highly recommend!",
+    rating: 5,
+    when: "2 weeks ago",
+    source: "Google",
+  },
+  {
+    name: "Sergey Klymok",
+    text: "Very honest and reliable. Definitely would do business together again.",
+    rating: 5,
+    when: "2 weeks ago",
+    source: "Google",
+  },
+  {
+    name: "Ostap Bender",
+    text: "Thanks so much, very professional work. Very recommended. Thanks again.",
+    rating: 5,
+    when: "2 weeks ago",
     source: "Google",
   },
 ];

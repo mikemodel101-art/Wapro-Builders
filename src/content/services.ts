@@ -6,17 +6,19 @@
  */
 
 import {
+  Armchair,
   Bath,
-  CookingPot,
   Drill,
   Flame,
   Grid3x3,
   Hammer,
+  Layers,
   PaintRoller,
   Ruler,
   ShowerHead,
   Sparkles,
   Thermometer,
+  ThermometerSun,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -27,32 +29,32 @@ export type ServiceItem = {
   text: string;
 };
 
-/** Two headline services — homepage cards + footer links */
+/** Two headline services — homepage cards + footer links (order = priority) */
 export const serviceSummaries = [
   {
-    title: "Tile Installation & Kitchen Backsplashes",
-    href: "/tile-installation",
-    image: "/images/kitchen-2.jpg",
-    alt: "Kitchen with a freshly installed patterned ceramic tile backsplash",
-    text: "Floors, showers, and statement backsplashes — set level, spaced tight, and sealed to last through years of Pacific Northwest living.",
-    points: [
-      "Floor, wall & shower tile",
-      "Backsplashes & accent walls",
-      "Porcelain, ceramic & natural stone",
-      "Waterproofing done to code, every time",
-    ],
-  },
-  {
-    title: "Bathroom Improvements & Handyman",
+    title: "Bathroom Remodeling & Improvements",
     href: "/bathroom-handyman",
     image: "/images/bath-2.jpg",
     alt: "Updated bathroom with a walk-in shower, new vanity, and fresh tile",
-    text: "From tub-to-shower conversions to the punch list nobody else wants — one call handles the whole bathroom, plus the odd jobs around it.",
+    text: "Full bathroom renovations and custom tile showers — plus every fixture, floor, and finishing detail that makes the room complete.",
     points: [
-      "Walk-in showers & tub conversions",
-      "Vanities, fixtures & flooring",
-      "Regrouting, caulk & grout repair",
-      "Handyman punch lists — small jobs welcome",
+      "Full bathroom renovations",
+      "Custom tile showers & bathtub installs",
+      "Vanity, toilet, mirror & faucet installs",
+      "LVP & tile flooring, subfloor included",
+    ],
+  },
+  {
+    title: "Tile Installation & Repairs",
+    href: "/tile-installation",
+    image: "/images/kitchen-2.jpg",
+    alt: "Kitchen with a freshly installed patterned ceramic tile backsplash",
+    text: "Wall, floor, and shower tile set level and sealed to last — from kitchen backsplashes to cracked-tile repairs that disappear.",
+    points: [
+      "Wall, floor & shower tile",
+      "Kitchen backsplashes & accent walls",
+      "Tile repair, regrouting & reglazing",
+      "Porcelain, ceramic & natural stone",
     ],
   },
 ] as const;
@@ -65,15 +67,15 @@ export const tileServices: ServiceItem[] = [
   {
     icon: Grid3x3,
     title: "Floor Tile Installation",
-    text: "Porcelain, ceramic, and stone floors over properly prepped substrates — crack-isolation membrane and self-leveling where the slab demands it.",
+    text: "Porcelain, ceramic, and stone floors over properly prepped substrates — OSB and plywood subfloor repair handled first, so floors stay flat and quiet.",
   },
   {
     icon: ShowerHead,
-    title: "Shower & Tub Surrounds",
-    text: "Full waterproofing systems behind every wall, sloped pans, niches, benches, and niche lighting coordination for showers that stay tight.",
+    title: "Custom Tile Showers",
+    text: "Full waterproofing systems behind every wall, sloped pans, niches, and benches — showers built to stay tight for decades, not years.",
   },
   {
-    icon: CookingPot,
+    icon: Layers,
     title: "Kitchen Backsplashes",
     text: "Subway to zellige, layout dry-fit first, outlets and under-cabinet details handled, finished with color-matched, sealed grout lines.",
   },
@@ -89,8 +91,8 @@ export const tileServices: ServiceItem[] = [
   },
   {
     icon: Wrench,
-    title: "Grout, Caulk & Tile Repair",
-    text: "Regrouting, re-caulking, loose-tile resets, and cracked-tile replacement that can add years to an otherwise healthy installation.",
+    title: "Tile Repair & Regrouting",
+    text: "Regrouting, re-caulking, tile reglazing, loose-tile resets, and cracked-tile replacement that can add years to an otherwise healthy installation.",
   },
 ];
 
@@ -127,67 +129,75 @@ export const tileMaterials = [
 
 export const bathroomServices: ServiceItem[] = [
   {
+    icon: Sparkles,
+    title: "Full Bathroom Remodels",
+    text: "Complete renovations from demo to final caulk line — layout, waterproofing, tile, floors, fixtures, and paint from one accountable crew.",
+  },
+  {
     icon: ShowerHead,
-    title: "Walk-In Showers & Tub Conversions",
-    text: "Tub-to-shower conversions, curbless entries, glass-door-ready openings, and waterproofing you can trust for the long haul.",
+    title: "Custom Tile Showers",
+    text: "Walk-in showers, tub-to-shower conversions, curbless entries, niches and benches — waterproofed correctly before a single tile is set.",
   },
   {
     icon: Bath,
-    title: "Vanities, Mirrors & Lighting",
-    text: "Vanity removal and install, faucet set, mirror and sconce mounting, and the finishing caulk lines that make it look factory.",
+    title: "Bathtub Install & Refinishing",
+    text: "New tub installation, plus repair, refinishing, and reglazing for tubs that have years left — an honest alternative to replacement.",
+  },
+  {
+    icon: Wrench,
+    title: "Vanities, Toilets & Fixtures",
+    text: "Vanity, toilet, mirror, and faucet installation with clean supply and drain work — the hardware that finishes the room, fitted right.",
   },
   {
     icon: Grid3x3,
-    title: "Bathroom Flooring & Heated Floors",
-    text: "Slip-rated porcelain, mosaic, or stone floors — with optional radiant heat installed and thermostat-tested before we set a tile.",
+    title: "LVP & Tile Bathroom Floors",
+    text: "Luxury vinyl plank or tile flooring with subfloor repair (OSB and plywood) handled first — warm, level, and waterproof underfoot.",
   },
   {
-    icon: Sparkles,
-    title: "Regrout & Refresh",
-    text: "The honest alternative to a full remodel: regrout, re-caulk, fixture swaps, and paint that make a tired bath feel new again.",
-  },
-  {
-    icon: Ruler,
-    title: "Layout & Accessibility Updates",
-    text: "Grab bars, comfort-height fixtures, wider clearances, and curbless entries — practical upgrades that age gracefully with you.",
-  },
-  {
-    icon: Sparkles,
-    title: "Ventilation & Moisture Fixes",
-    text: "Quiet exhaust fans, moisture-resistant drywall, and mildew-prone spot repair — essential in our damp Northwest climate.",
+    icon: ThermometerSun,
+    title: "Heated Floors & Ventilation",
+    text: "Radiant floor heat, quiet exhaust fans, and moisture fixes — the upgrades that make a Northwest bathroom comfortable and mold-free.",
   },
 ];
+
+export const bathroomRefreshList = [
+  "Regrout & re-caulk every joint — instant visual reset",
+  "Tile reglazing and worktop resurfacing",
+  "New vanity, toilet, faucet, mirror & light fixtures",
+  "LVP flooring over the existing subfloor",
+  "Moisture-resistant paint in a fresh color",
+] as const;
 
 export const handymanServices: ServiceItem[] = [
   {
     icon: Hammer,
-    title: "Drywall & Paint Touch-Ups",
-    text: "Patches blended flat, texture matched, and paint touched up so the wall looks like nothing ever happened.",
+    title: "Drywall Repair & Texturing",
+    text: "Patches blended flat and texture matched — from doorknob dents to full sections after plumbing work, ready for paint.",
   },
   {
-    icon: Wrench,
-    title: "Caulk, Grout & Sealant Lines",
-    text: "Kitchens, baths, windows, and trim — crisp new sealant lines that keep water out and rooms looking finished.",
-  },
-  {
-    icon: Drill,
-    title: "Mounting & Installation",
-    text: "TVs, shelving, grab bars, curtain rods, and hardware — anchored correctly, level, and into structure every time.",
+    icon: Layers,
+    title: "Subfloor Repair",
+    text: "OSB and plywood subfloor replacement for soft spots, squeaks, and water damage — solid, level structure before new flooring goes down.",
   },
   {
     icon: PaintRoller,
-    title: "Door, Trim & Hardware Repairs",
-    text: "Sticking doors planed, hinges and latches replaced, baseboard and casing patched, and hardware swaps throughout the house.",
+    title: "Interior Painting",
+    text: "Rooms, ceilings, trim, and accent walls — sharp lines, careful masking, and dust-minimized prep in lived-in homes.",
   },
   {
     icon: Ruler,
-    title: "Fixture & Faucet Swaps",
-    text: "Faucets, disposals, light fixtures, fans, and thermostats replaced safely, with everything tested before we leave.",
+    title: "Cabinet Installation",
+    text: "Kitchen and bath cabinets set level, scribed, and secured to structure — box install through hardware alignment.",
   },
   {
-    icon: Sparkles,
-    title: "Pre-Listing & Move-In Punch Lists",
-    text: "Two-page list, one crew, one invoice. The fastest way to get a home market-ready — or to settle into a new one.",
+    icon: Drill,
+    title: "Trim & Molding Installation",
+    text: "Baseboard, casing, and crown molding with tight miters and finished nail work — the detail that makes rooms look complete.",
+  },
+  {
+    icon: Armchair,
+    title: "Furniture Assembly",
+    text: "Flat-pack furniture, shelving, and wall mounting assembled square, anchored to studs, and leveled — boxes hauled out when we're done.",
   },
 ];
 
@@ -202,7 +212,7 @@ export const processSteps = [
   },
   {
     title: "On-site visit & written estimate",
-    text: "We measure, check the substrate and plumbing, talk materials, and hand you a fixed, line-item estimate. No vague allowances.",
+    text: "Evgenii measures, checks the substrate and plumbing, talks materials, and hands you a fixed, line-item estimate. No vague allowances.",
   },
   {
     title: "Scheduled, tidy installation",
@@ -221,14 +231,14 @@ export const trustPoints = [
     text: "A registered Washington State contractor carrying full liability and workers' comp — certificates available on request.",
   },
   {
-    icon: "file",
-    title: "Written, Fixed-Price Estimates",
-    text: "Line-item proposals before work starts. The number we agree on is the number you pay, unless you change the scope.",
+    icon: "user",
+    title: "Owner on Every Job",
+    text: "You hire Evgenii, you get Evgenii. The person who quotes your project is the person laying the tile and answering the phone.",
   },
   {
     icon: "sparkles",
     title: "Tidy, Respectful Crews",
-    text: "Floor protection, dust control, and a broom-clean site every night. We work in your home like we're guests — because we are.",
+    text: "Floor protection, dust control, and a broom-clean site every night. Reviewers mention our cleanliness again and again.",
   },
   {
     icon: "award",

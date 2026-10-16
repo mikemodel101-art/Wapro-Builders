@@ -14,10 +14,10 @@ import { site } from "@/content/site";
 import { trackEvent } from "@/lib/track";
 
 const SERVICE_OPTIONS = [
+  "Full bathroom remodel",
+  "Custom tile shower",
   "Kitchen backsplash",
-  "Bathroom / shower tile",
-  "Floor tile",
-  "Bathroom refresh (non-tile)",
+  "Floor tile or LVP flooring",
   "Handyman / small repairs",
   "Something else",
 ];

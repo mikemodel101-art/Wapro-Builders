@@ -18,12 +18,12 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata: Metadata = {
   title: "Contact & Free Estimates — Redmond, WA",
   description:
-    "Request a free estimate from WA Pro Builders — tile installation & home improvement in Redmond, WA. Call (425) 555-0148 or send project details and photos. Serving Bellevue, Kirkland, Sammamish & the Eastside within ~20 miles.",
+    "Request a free estimate from WA Pro Builders — bathroom remodeling & home improvement in Redmond, WA. Call (206) 804-1196 or send project details and photos. Serving Bellevue, Kirkland, Sammamish & the Eastside within ~20 miles.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Request a Free Estimate | WA Pro Builders LLC — Redmond, WA",
     description:
-      "Call (425) 555-0148 or send your project details and photos — free on-site estimates across the Eastside.",
+      "Call (206) 804-1196 or send your project details and photos — free on-site estimates across the Eastside.",
     url: `${site.url}/contact`,
   },
 };
@@ -32,7 +32,7 @@ const nextSteps = [
   {
     icon: MessageSquareText,
     title: "We reply within 1 business day",
-    text: "A real person — often the owner — reviews every request and calls, texts, or emails back.",
+    text: "A real person — usually Evgenii himself — reviews every request and calls, texts, or emails back.",
   },
   {
     icon: CalendarCheck,
@@ -188,11 +188,11 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <blockquote className="mt-4 text-[15px] leading-relaxed text-ink-700">
-                  &ldquo;From the first phone call to the final walkthrough, everything was exactly
-                  as promised.&rdquo;
+                  &ldquo;Very honest and reliable. Definitely would do business together
+                  again.&rdquo;
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[10px] tracking-[0.18em] text-ink-400 uppercase">
-                  Sarah M. · Redmond · Google review
+                  Sergey K. · Verified Google review
                 </figcaption>
               </figure>
             </Reveal>

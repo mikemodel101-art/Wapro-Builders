@@ -24,22 +24,22 @@ const inter = Inter({
 });
 
 const description =
-  "WA Pro Builders LLC — licensed, bonded & insured tile installation, kitchen backsplashes, bathroom improvements & handyman services in Redmond, WA. Serving Bellevue, Kirkland & the Eastside within ~20 miles. Free estimates: (425) 555-0148.";
+  "WA Pro Builders LLC — licensed, bonded & insured bathroom remodeling and home improvement in Redmond, WA. Full bathroom renovations, custom tile showers, tile & LVP flooring, vanities & fixtures, and handyman repairs. 5.0-rated on Google. Serving Bellevue, Kirkland & the Eastside. Call (206) 804-1196.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "WA Pro Builders LLC | Tile Installation & Home Improvement — Redmond, WA",
+    default: "WA Pro Builders LLC | Bathroom Remodeling & Home Improvement — Redmond, WA",
     template: "%s | WA Pro Builders LLC",
   },
   description,
   keywords: [
-    "tile installation Redmond WA",
-    "kitchen backsplash Redmond",
-    "bathroom remodel Bellevue",
-    "shower tile Kirkland",
+    "bathroom remodel Redmond WA",
+    "custom tile shower Redmond",
+    "bathroom renovation Bellevue",
+    "tile installation Kirkland",
+    "LVP flooring Redmond WA",
     "handyman Redmond WA",
-    "tile contractor Eastside",
     "WA Pro Builders",
   ],
   authors: [{ name: site.name }],
@@ -51,20 +51,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "WA Pro Builders LLC | Tile & Home Improvement — Redmond, WA",
+    title: "WA Pro Builders LLC | Bathroom Remodeling — Redmond, WA",
     description,
     images: [
       {
         url: "/images/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Kitchen with a freshly installed tile backsplash by WA Pro Builders LLC of Redmond, WA",
+        alt: "Remodeled Eastside kitchen and bath work by WA Pro Builders LLC of Redmond, WA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WA Pro Builders LLC | Tile & Home Improvement — Redmond, WA",
+    title: "WA Pro Builders LLC | Bathroom Remodeling — Redmond, WA",
     description,
     images: ["/images/og.jpg"],
   },

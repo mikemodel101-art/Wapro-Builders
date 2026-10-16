@@ -22,7 +22,7 @@ export function localBusinessJsonLd() {
     name: site.name,
     alternateName: site.shortName,
     description:
-      "WA Pro Builders LLC is a licensed, bonded, and insured tile installation and home improvement contractor based in Redmond, WA — serving Bellevue, Kirkland, Sammamish, Woodinville, and Eastside homeowners within about 20 miles.",
+      "WA Pro Builders LLC is a licensed, bonded, and insured bathroom remodeling and home improvement contractor based in Redmond, WA — full bathroom renovations, custom tile showers, tile and LVP flooring, vanity and fixture installation, and handyman repairs for Redmond, Bellevue, Kirkland, and Eastside homeowners.",
     url: site.url,
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
@@ -63,14 +63,8 @@ export function localBusinessJsonLd() {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "08:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "09:00",
-        closes: "16:00",
+        opens: "07:00",
+        closes: "21:00",
       },
     ],
     aggregateRating: {
@@ -78,10 +72,23 @@ export function localBusinessJsonLd() {
       ratingValue: String(site.rating.value),
       reviewCount: String(site.rating.count),
     },
+    founder: {
+      "@type": "Person",
+      name: site.owner,
+      jobTitle: "Owner & Lead Remodeler",
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Tile & Home Improvement Services",
+      name: "Bathroom Remodeling & Home Improvement Services",
       itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Bathroom Remodeling & Improvements",
+            url: `${site.url}/bathroom-handyman`,
+          },
+        },
         {
           "@type": "Offer",
           itemOffered: {
@@ -94,8 +101,8 @@ export function localBusinessJsonLd() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Bathroom Improvements & Handyman Services",
-            url: `${site.url}/bathroom-handyman`,
+            name: "Handyman & General Repairs",
+            url: `${site.url}/bathroom-handyman#handyman`,
           },
         },
       ],
